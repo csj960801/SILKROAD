@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/* pc */
+@media ( min-width :770px) {
+	.menu {
+		margin: 0;
+	}
+	
+	.footer {
+		background: #ddd no-repeat center;
+	}
+
+/* mobile */
+@media ( max-width :769px) {
+}

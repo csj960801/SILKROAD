@@ -1,0 +1,6 @@
+package com.silkroad.SilkRoadDAO;
+
+public interface SilRoadDAO {
+
+	public int BoardInsert();
+}

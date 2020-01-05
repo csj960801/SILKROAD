@@ -1,0 +1,41 @@
+package TestPackage;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.junit.Test;
+
+public class BeanTest {
+
+	@Inject
+	private SqlSessionFactory sqlFactory;
+
+	// SqlSessionFactory 객체가 제대로 만들어졌는지 Test
+	@Test
+	public void testFactory() {
+		System.out.println(sqlFactory);
+	}
+
+	// MyBatis와 Mysql 서버가 제대로 연결되었는지 Test
+	@Test
+	public void testSession() throws Exception {
+		try (SqlSession session = sqlFactory.openSession()) {
+			System.out.println(session);
+		} catch (Exception e) {
+			System.out.println("myBatis와 mySql이 연결되지않았습니다. => " + e.toString());
+		}
+	}
+
+	public static void main(String[] args) {
+
+		BeanTest bean = new BeanTest();
+
+		try {
+			bean.testSession();
+		} catch (Exception e) {
+		}
+
+	}
+
+}

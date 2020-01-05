@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="initial-scale=1.0, width=device-width" />
+
+<!-- css -->
+<link href="/BootStrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/BootStrap/css/bootstrap.css" rel="stylesheet" />
+<link href="/BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="/js+style/css/SilkRoadCss.css" rel="stylesheet" />
+
+<!-- js -->
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/BootStrap/js/bootstrap.js"></script>
+<script src="/BootStrap/js/bootstrap.min.js"></script>
+<script src="/js+style/js/jquery-3.2.1.js"></script>
+<script src="/js+style/js/ItemListJS.js"></script>
+<script src="/js+style/js/SilkRoadJS.js"></script>
+
+<title>SilkRoad</title>
+</head>
+<body>
+	<div class="menu navbar navbar-inverse">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xs-3">
+					<div class="menu-title">
+						<a href="/" class="navbar-brand">SilkRoad</a>
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Menu">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+					</div>
+				</div>
+				<div class="col-md-7 col-xs-8 collapse navbar-collapse" id="Menu">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="#ring">RING</a></li>
+						<li><a href="#neckless">NECKLESS</a></li>
+						<li><a href="#braclet">BRACLET</a></li>
+					</ul>
+				</div>
+				<div class="col-md-1 col-xs-1">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="#" id="inquiry-menu">INQUIRY</a></li>
+			        </ul>	
+				</div>
+			</div>
+		</div>
+	</div>

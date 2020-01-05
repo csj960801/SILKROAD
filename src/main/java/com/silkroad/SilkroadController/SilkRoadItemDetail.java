@@ -1,0 +1,57 @@
+package com.silkroad.SilkroadController;
+
+public class SilkRoadItemDetail {
+
+// ItemCode변수로 가져온 값에 따른 품목 이름 배분 함수
+	public String ItemDetail(String ItemCode) {
+		String name = "";
+		// 아이템코드명
+		String[] ItemCodes = { "ring1", "ring2", "ring3", "ring4", "bracelet1", "bracelet2", "bracelet3",
+				"bracelet4", "necklace1", "necklace2", "necklace3", "necklace4" };
+		// 반지류
+		if (ItemCode.indexOf("ring") > -1) {
+			for (String Items : ItemCodes) {
+				// 일치하는 아이템코드값이 존재할 경우
+				if (Items.equals(ItemCode)) {
+					name = CodeResolver(Items);
+				}
+			}
+		}
+
+		// 팔찌류
+		else if (ItemCode.indexOf("bracelet") > -1) {
+			for (String Items : ItemCodes) {
+				if (Items.equals(ItemCode)) {
+					name = CodeResolver(Items);
+				}
+			}
+		}
+		// 넥레이스류
+		else if (ItemCode.indexOf("necklace") > -1) {
+			for (String Items : ItemCodes) {
+				if (Items.equals(ItemCode)) {
+					name = CodeResolver(Items);
+				}
+			}
+		}
+		return name;
+	}
+
+	// 아이템코드해석용 함수(1차)
+	public String CodeResolver(String ItemCode) {
+		String ItemName = "";
+		if (ItemCode.equals("ring1")) {
+			ItemName = "WealthRose";
+		} else if (ItemCode.equals("ring2")) {
+			ItemName = "SurroundCross";
+		} else if (ItemCode.equals("ring3")) {
+			ItemName = "ForbidenEmotion";
+		} else if (ItemCode.equals("ring4")) {
+			ItemName = "ChaosRing";
+		} else {
+			ItemName = "제작중";
+		}
+		return ItemName;
+	}
+
+}// end of class

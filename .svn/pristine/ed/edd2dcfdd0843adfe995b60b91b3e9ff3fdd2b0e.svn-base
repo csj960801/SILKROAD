@@ -1,0 +1,20 @@
+package com.silkroad.SilkRoadServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.silkroad.SilkRoadDAOImpl.SilkRoadDAOImpl;
+import com.silkroad.SilkRoadService.SilkRoadService;
+
+@Service("com.silkroad.SilkRoadService.SilkRoadService")
+public class SilkRoadServiceImpl implements SilkRoadService{
+    
+	@Autowired
+	private SilkRoadDAOImpl dao;
+	
+	//게시판 데이터 저장
+	@Override
+	public int BoardInsert() {
+		return dao.BoardInsert();
+	}
+}

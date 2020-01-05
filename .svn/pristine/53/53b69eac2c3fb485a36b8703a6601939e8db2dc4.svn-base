@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12 hidden-xs">
+					<div class="item-title-wrapper">
+						<h3 class="item-title">Best Item</h3>
+					</div>
+					<div class="items">
+						<ul class="item-ul">
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+						    <div class="clearfix"></div>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+						    <div class="clearfix"></div>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>

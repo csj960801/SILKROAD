@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:include page="/Template/Top.jsp" />
+
+<div class="category-main">
+	<div class="category-wrapper">
+		<h3 class="category-h3">Ring</h3>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 hidden-xs">Ring</div>
+		</div>
+	</div>
+</div>
+
+<jsp:include page="/Template/Footer.jsp" />

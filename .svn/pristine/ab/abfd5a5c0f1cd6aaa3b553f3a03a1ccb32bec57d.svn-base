@@ -1,0 +1,16 @@
+package com.silkroad.SilkRoadDB;
+
+// SqlMapper
+public class SqlMapper {
+
+	public String sqlMap(String sqlOrder) {
+		String sql = "";
+		switch (sqlOrder) {
+		case "insert":
+			sql = "insert into board(BoardWriter, BoardContent) values(?,?)";
+			break;
+		}
+		return sql;
+	}
+
+}

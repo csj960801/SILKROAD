@@ -1,0 +1,24 @@
+package com.silkroad.SilkRoadService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.silkroad.SilkRoadDAO.SilkRoadDAOImpl;
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+public class SilkRoadServiceImpl implements SilkRoadService {
+
+	@Autowired
+	private SilkRoadDAOImpl dao;
+
+	public static SilkRoadServiceImpl getServiceImpl() {
+		return new SilkRoadServiceImpl();
+	}
+    
+	
+	@Override
+	public boolean insertInquiry(SilkRoadVO vo) {
+		// TODO Auto-generated method stub
+		return dao.insertInquiry(vo);
+	}
+
+}

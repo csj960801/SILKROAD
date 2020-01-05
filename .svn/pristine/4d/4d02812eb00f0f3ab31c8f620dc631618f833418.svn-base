@@ -1,0 +1,33 @@
+package com.silkroad.SilkRoadDB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import javax.annotation.sql.DataSourceDefinition;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@DataSourceDefinition(name = "jdbc/MysqlDB", className = "com.mysql.cj.jdbc.driver", url = "jdbc:mysql://localhost:3306/spring?serverTimezone=UTC", user = "root", password = "sevenn0801")
+public class ConnectorCreation {
+
+	private static final Logger DBLogger = LoggerFactory.getLogger(ConnectorCreation.class);
+
+	public static Connection getConnector() {
+		Connection connector = null;
+
+		try {
+			String url = "jdbc:mysql://localhost:3306/Spring?serverTimezone=UTC&useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8";
+			String user = "root";
+			String password = "sevenn0801";
+
+			Class.forName("com.mysql.cj.jdbc.driver");
+			connector = DriverManager.getConnection(url, user, password);
+			DBLogger.debug("DB정상작동중!");
+		} catch (Exception e) {
+			DBLogger.error("DB연결실패: " + e.toString());
+		}
+		return connector;
+	}
+
+}

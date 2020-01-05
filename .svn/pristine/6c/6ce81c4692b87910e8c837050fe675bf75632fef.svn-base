@@ -1,0 +1,24 @@
+package com.silkroad.silkroadController;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * Handles requests for the application home page.
+ */
+@Controller
+public class SilkRoadController {
+
+	private static final Logger logger = LoggerFactory.getLogger(SilkRoadController.class);
+
+	// 어플리케이션을 작동하게 될 경우 index를 타고 main.jsp로 로딩 되도록.
+	@RequestMapping("/index")
+	public String home(Model model) {
+		model.addAttribute("main", "/Template/main.jsp");
+		return "index";
+	}
+
+}

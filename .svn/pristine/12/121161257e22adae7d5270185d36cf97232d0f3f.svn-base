@@ -1,0 +1,25 @@
+package com.silkroad.SilkRoadDAOImpl;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.silkroad.SilkRoadDAO.SilRoadDAO;
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+@Repository("com.silkroad.SilkRoadDAO.SilkRoadDAO")
+public class SilkRoadDAOImpl implements SilRoadDAO {
+
+	private SqlSessionTemplate sqlSession;
+    
+	// sqlSessionTemplate Setter
+	public void getSqlSession(SqlSessionTemplate sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	// 게시판 데이터 저장
+	@Override
+	public int BoardInsert(SilkRoadVO vo) {
+		return sqlSession.insert("com.silkroad.SilkRoadDAO,BoardInquiry", vo);
+	}
+
+}

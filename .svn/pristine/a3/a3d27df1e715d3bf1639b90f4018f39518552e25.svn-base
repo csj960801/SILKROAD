@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:include page="/Template/Top.jsp" />
+<body>
+	<div class="index-main">
+		<div class="title-cover">
+			<div class="title-carousel-wrapper">
+				<div id="main-carousel" class="main-carousel carousel slide"
+					data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item item active"></div>
+						<div class="carousel-item item"></div>
+						<div class="carousel-item item"></div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#main-carousel"
+					data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span> <span
+					class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#main-carousel"
+					data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span> <span
+					class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 hidden-xs">
+					<div class="item-title-wrapper">
+						<h3 class="item-title">Best Item</h3>
+					</div>
+					<div class="items">
+						<ul class="item-ul">
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/testImg.jpg"></a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<jsp:include page="/Template/Footer.jsp" />

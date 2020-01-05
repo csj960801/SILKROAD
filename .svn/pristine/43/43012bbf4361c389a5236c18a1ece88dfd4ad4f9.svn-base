@@ -1,0 +1,5 @@
+package com.silkroad.SilkRoadService;
+
+public interface SilkRoadService {
+   public int BoardInsert();
+}

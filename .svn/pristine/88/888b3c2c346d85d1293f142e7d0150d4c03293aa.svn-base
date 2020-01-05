@@ -1,0 +1,42 @@
+/**
+ * 기능 위주로 제작(function Type)
+ */
+window.onload = function() {
+	// 메뉴에서 문의게시판으로 이동할 경우
+	document.getElementById("inquiry-menu").onclick = function() {
+		window.location.href = "Board/Inquiry.do?BoardParam=1";
+	};
+	
+	// 게시판 문의 버튼 클릭시 동작
+	document.getElementById("inquiry-submit").onclick = function() {
+
+		if(InquiryFunction()){
+		  document.getElementById("inquiryFrm").setAttribute("method","post");
+		  document.getElementById("inquiryFrm").setAttribute("action","Inquiry.do?BoardParam=2");
+		  document.inquiryFrm.submit();
+		}
+		return false;
+	};
+	
+};
+function InquiryFunction() {
+	var Email = document.getElementById("inquiry-email");
+	var Content = document.getElementById("inquiry-content");
+
+	if (Email.value.indexOf("@") <= -1) {
+		alert("이메일에 @는 필수 요소입니다.");
+		Email.focus();
+		return false;
+	} else if (Email.value.length <= 9) {
+		alert("이메일은 9글자 이상이여야 합니다.");
+		Email.focus();
+		return false;
+	}
+
+	if (Content.value.length <= 0 || Content == null) {
+		alert("입력된 문의글이 존재하지않습니다");
+		Content.focus();
+		return false;
+	}
+   return true;
+};

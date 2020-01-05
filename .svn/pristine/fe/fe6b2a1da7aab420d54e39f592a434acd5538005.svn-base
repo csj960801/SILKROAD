@@ -1,0 +1,9 @@
+package com.silkroad.SilkRoadService;
+
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+public interface SilkRoadService {
+
+	public boolean insertInquiry(SilkRoadVO vo);
+	
+}

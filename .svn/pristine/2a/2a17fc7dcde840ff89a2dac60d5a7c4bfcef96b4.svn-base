@@ -1,0 +1,53 @@
+/**
+ * 바닐라 스크립트 개념 위주로 제작(function Type)
+ */
+
+// chrome & mozila & opera others
+var appInfo = navigator.userAgent;
+console.log(appInfo);
+
+window.onload = function(vanila) {
+
+	// 메뉴에서 문의게시판으로 이동할 경우
+	document.getElementById("inquiry-menu").onclick = function(e) {
+		window.location.href = "Inquiry.do?BoardParam=1";
+	};
+
+	// 게시판 문의 버튼 클릭시 동작
+	document.getElementById("inquiry-submit").onclick = function(e) {
+		if (InquiryFunction()) {
+			document.getElementById("inquiryFrm").setAttribute("method", "post");
+			document.getElementById("inquiryFrm").setAttribute("action","Inquiry.do?BoardParam=2");
+			document.inquiryFrm.submit();
+		}
+		return false;
+	};
+};
+
+// window
+if (appInfo.indexOf("ie") > -1 || appInfo.indexOf("window") > -1) {
+	document.getElementsByTagName("body")[0].innerHTML = "<H2 class='osWarn' style='text-align:center;'>윈도우는 지원하지않습니다.</H2>";
+	document.getElementsByTagName("body")[0].style.background = "#ddd";
+}
+
+function InquiryFunction() {
+	var Email = document.getElementById("inquiry-email");
+	var Content = document.getElementById("inquiry-content");
+
+	if (Email.value.indexOf("@") <= -1) {
+		alert("이메일에 @는 필수 요소입니다.");
+		Email.focus();
+		return false;
+	} else if (Email.value.length <= 9) {
+		alert("이메일은 9글자 이상이여야 합니다.");
+		Email.focus();
+		return false;
+	}
+
+	if (Content.value.length <= 0 || Content == null) {
+		alert("입력된 문의글이 존재하지않습니다");
+		Content.focus();
+		return false;
+	}
+	return true;
+};

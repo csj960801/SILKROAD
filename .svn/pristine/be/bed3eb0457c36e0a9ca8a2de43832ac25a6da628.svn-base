@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="/Template/Top.jsp" />
+<body>
+	<div class="inquiry-wrapper">
+		<div class="title-cover">
+			<div class="title-carousel-wrapper">
+				<div id="mainCarousel" class="main-carousel carousel slide"
+					data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="carousel-caption caption">
+								<h4 class="caption-title">Create Different for your Bright Worthy</h4>
+							</div>
+						</div>
+						<div class="item">
+							<div class="carousel-caption caption">
+								<h4 class="caption-title">Create Different for your Bright
+									Worthy</h4>
+							</div>
+
+						</div>
+						<div class="item">
+							<div class="carousel-caption caption">
+								<h4 class="caption-title">Create Different for your Bright
+									Worthy</h4>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#mainCarousel" data-slide="prev" role="button">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" role="button"
+						href="#mainCarousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="table-responsive form-group col-md-12 col-xs-12">
+					<form name="inquiryFrm" id="inquiryFrm">
+						<table class="table inquiry-tbl">
+							<tbody>
+								<tr>
+									<th>User-Email</th>
+									<td><input type="email" class="form-control text-input"
+										id="inquiry-email" name="clientEmail"></td>
+								</tr>
+								<tr>
+									<th>Inquiry-Content</th>
+									<td><textarea class="form-control text-textarea"
+											id="inquiry-content" name="clientInquiry" cols="30" rows="15"></textarea></td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="2">
+										<button id="inquiry-submit" class="btn">Inquiry</button>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<jsp:include page="/Template/Footer.jsp" />

@@ -1,0 +1,8 @@
+package com.silkroad.SilkRoadDAO;
+
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+public interface SilkRoadDAO {
+
+	public void BoardInsert(SilkRoadVO vo);
+}

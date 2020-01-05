@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!-- ItemDetail.jsp에서 받아온 ${ItemInfo} 적용 -->
+<c:set var="ItemName" value="${param.ItemInfo}" />
+
+<ul class="describe-ul">
+	<!-- 반지류  -->
+	<c:if test="${ItemName == 'ring1'}">
+		<li>ItemName: <span>WealthRose</span></li>
+		<li>ItemDetail:</li>
+	</c:if>
+	<c:choose>
+		<c:when test="${ItemName == 'ring2'}">
+			<li>ItemName: <span>SurroundCross</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'ring3'}">
+			<li>ItemName: <span>ForbidenEmotion</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'ring4'}">
+			<li>ItemName: <span>ChaosRing</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+	</c:choose>
+
+	<!-- 목걸이류  -->
+	<c:if test="${ItemName == 'necklace1'}">
+		<li>ItemName: <span>LuckySevn</span></li>
+		<li>ItemDetail:</li>
+	</c:if>
+	<c:choose>
+		<c:when test="${ItemName == 'necklace2'}">
+			<li>ItemName: <span>Anonymous</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'necklace3'}">
+			<li>ItemName: <span>Anonymous2</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'necklace4'}">
+			<li>ItemName: <span>Anonymous3</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+	</c:choose>
+
+	<!-- 팔찌류  -->
+	<c:if test="${ItemName == 'bracelet1'}">
+		<li>ItemName: <span>LuckySevn</span></li>
+		<li>ItemDetail:</li>
+	</c:if>
+	<c:choose>
+		<c:when test="${ItemName == 'bracelet2'}">
+			<li>ItemName: <span>Anonymous</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'bracelet3'}">
+			<li>ItemName: <span>Anonymous2</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+		<c:when test="${ItemName == 'bracelet4'}">
+			<li>ItemName: <span>Anonymous3</span></li>
+			<li>ItemDetail:</li>
+		</c:when>
+	</c:choose>
+</ul>

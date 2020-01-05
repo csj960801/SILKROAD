@@ -1,0 +1,30 @@
+package com.silkroad.SilkRoadVO;
+
+public class SilkRoadVO {
+
+	private String clientEmail;
+	private String clientInquiry;
+	
+	public SilkRoadVO() {}
+	public SilkRoadVO(String clientEmail, String clientInquiry) {
+	  this.setClientEmail(clientEmail);
+	  this.setClientInquiry(clientInquiry);
+	}
+
+	public String getClientEmail() {
+		return clientEmail;
+	}
+
+	public void setClientEmail(String clientEmail) {
+		this.clientEmail = clientEmail;
+	}
+
+	public String getClientInquiry() {
+		return clientInquiry;
+	}
+
+	public void setClientInquiry(String clientInquiry) {
+		this.clientInquiry = clientInquiry;
+	}
+  	
+}

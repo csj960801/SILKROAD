@@ -1,0 +1,30 @@
+/**
+ * 비동기 방식으로 아이템 정보를 클라이언트에게 보여주는기능(연구필요)
+ * (Controller Mapping -> /Item/ItemDetail.do)
+ */
+$(function() {
+	ItemDetailAjax();
+});
+
+// 카테고리에서 선택한 아이템 정보
+function ItemDetailAjax() {
+	var item = {
+		ItemInfo : $("#itemValue").val()
+	};
+	$.ajax({
+		url : "/Item/ItemDetail.jsp",
+		data : item,
+		type : "post",
+		success : function(DetailInfo) {
+			$("#itemDetail").html(DetailInfo);
+		},
+		error : function(e) {
+			//console.log(String(e));
+			confirm("선택한아이템이 품절되었거나 존재하지않습니다. 재접속하시겠습니까?");
+			if (confirm) {
+				window.location.reload();
+			}
+			history.back();
+		}
+	});
+};

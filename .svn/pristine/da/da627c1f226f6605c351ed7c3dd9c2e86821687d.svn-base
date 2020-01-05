@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="/Template/Top.jsp" />
+<script src="/js+style/js/ItemDetailJS.js"></script>
+
+<input type="hidden" id="itemValue" value="${ItemKind}">
+<div class="itemDetail"></div>
+
+<jsp:include page="/Template/Footer.jsp" />

@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="item-title-wrapper">
+						<h3 class="item-title">Best Item</h3>
+					</div>
+					<div class="items">
+					 <section class="part-wrapper">
+						<h3 class="item-part-h3">RING</h3>
+					    <ul class="item-ul" id="ring">
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/ring.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/ring.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/ring.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/ring.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/ring.jpg"></a></li>
+						</ul>
+					 </section>
+				
+					 <div class="clearfix"></div>
+			    
+			         <section class="part-wrapper">
+			        	<h3 class="item-part-h3">BRACLET</h3>
+					 	<ul class="item-ul" id="braclet">
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/bracelet.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/bracelet.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/bracelet.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/bracelet.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/bracelet.jpg"></a></li>
+						</ul>
+					</section>
+				
+					<div class="clearfix"></div>
+			    
+			     	<section class="part-wrapper">
+						<h3 class="item-part-h3">NECKLESS</h3>
+					 	<ul class="item-ul" id="neckless">
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/neckless.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/neckless.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/neckless.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/neckless.jpg"></a></li>
+							<li><a href="#"><img class="img-responsive img-thumbnail" src="/picture/neckless.jpg"></a></li>	
+					   </ul>
+					  </section>
+					</div>
+				</div>
+			</div>
+		</div>

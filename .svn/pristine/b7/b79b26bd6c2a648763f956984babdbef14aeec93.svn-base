@@ -1,0 +1,5 @@
+#PERSONAL DB INFO SET
+jdbc.driverClassName=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/Spring?serverTimezone=UTC&useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8
+jdbc.username=root
+jdbc.password=sevenn0801

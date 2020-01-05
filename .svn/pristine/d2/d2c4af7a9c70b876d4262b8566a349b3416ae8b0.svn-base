@@ -1,0 +1,20 @@
+package com.silkroad.SilkRoadDAOImpl;
+
+import org.springframework.stereotype.Repository;
+import com.silkroad.SilkRoadDAO.SilkRoadDAO;
+import com.silkroad.SilkRoadDB.DBFunction;
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+@Repository(value = "com.silkroad.SilkRoadDAO.SilkRoadDAO")
+public class SilkRoadDAOImpl implements SilkRoadDAO {
+
+	//@Autowired
+	private DBFunction sqlSession = DBFunction.functionInstance();
+
+	// 게시판 데이터 저장
+	@Override
+	public void BoardInsert(SilkRoadVO vo) {
+		sqlSession.insertFunction(false, vo);
+	}
+
+}

@@ -1,0 +1,57 @@
+package com.silkroad.SilkRoadDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.silkroad.SilkRoadDB.DBConnection;
+import com.silkroad.SilkRoadDB.SqlMapper;
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
+	private Logger logger = LoggerFactory.getLogger(SilkRoadDAOImpl.class);
+
+	private Connection conector;
+	private PreparedStatement sqlState;
+
+	public static SilkRoadDAOImpl getDaoImpl() {
+		return new SilkRoadDAOImpl();
+	}
+
+	/*
+	 * 문의게시판 문의글 저장
+	 */
+	@Override
+	public boolean insertInquiry(SilkRoadVO vo) {
+		boolean check = false;
+		String sql = "insert";
+
+		try {
+			conector = DBConnection.getDBConnector();
+			sqlState = conector.prepareStatement(super.sqlMap(sql));
+
+			sqlState.setString(1, vo.getClientEmail());
+			sqlState.setString(2, vo.getClientInquiry());
+			if (sqlState.executeUpdate() > 0) {
+				check = true;
+			}
+		} catch (Exception e) {
+			logger.error(e.toString());
+		} finally {
+			try {
+				if (conector != null) {
+					conector.close();
+				}
+				if (sqlState != null) {
+					sqlState.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return check;
+	}
+
+}

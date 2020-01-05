@@ -1,0 +1,67 @@
+package com.silkroad.SilkRoadDB;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.silkroad.SilkRoadVO.SilkRoadVO;
+
+public class DBFunction extends SqlMapper {
+
+	private static final Logger DBFunctionlogger = LoggerFactory.getLogger(DBFunction.class);
+
+	private Connection connector = null;
+	private PreparedStatement sqlOrder = null;
+	private ResultSet sqlResult = null;
+
+	// DB기능 타입
+	private String[] functionType = { "insert", "select", "update", "delete" };
+    
+	public static DBFunction functionInstance() {
+		return new DBFunction();
+	}//end of functionInstance
+	
+	// insert
+	public boolean insertFunction(boolean sqlFlag, SilkRoadVO vo) {
+
+		try {
+			connector = ConnectorCreation.getConnector();
+           
+			for (int db = 0; db < functionType.length; db++) {
+				if (functionType[db].contentEquals("index")) {
+					sqlOrder = connector.prepareStatement(super.sqlMap(functionType[db]));
+				}
+			}
+
+			sqlOrder.setString(1, vo.getClientEmail());
+			sqlOrder.setString(2, vo.getClientInquiry());
+
+			int insertCnt = sqlOrder.executeUpdate();
+			if (insertCnt > 0) {
+				sqlFlag = true;
+				DBFunctionlogger.debug("insert Success");
+			}
+		} catch (Exception e) {
+			DBFunctionlogger.error("insert Failed: " + e.toString());
+		} finally {
+			try {
+				if (connector != null) {
+					connector.close();
+				}
+				if (sqlOrder != null) {
+					sqlOrder.close();
+				}
+				if (sqlResult != null) {
+					sqlResult.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return sqlFlag;
+	}//end of insert
+
+}// END OF CLASS
