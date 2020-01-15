@@ -96,7 +96,7 @@ a, a:hover {
 	}
 	.itemList, .inquiry-wrapper {
 		background: #333333e6;
-		padding: 0 0 25px;
+		padding: 0 0 65px;
 	}
 	.item-title-wrapper h3.item-title {
 		position: relative;
@@ -118,11 +118,12 @@ a, a:hover {
 	.items ul.item-ul li {
 		width: calc(100%/ 5);
 		float: left;
-		padding: 5px 10px;
+		padding: 5px 15px;
 		-webkit-transition: all 0.4s ease;
 		-ms-transition: all 0.4s ease;
 		-o-transition: all 0.4s ease;
 		-moz-transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
 	}
 	.items ul.item-ul li:hover {
 		-webkit-transition: all 0.4s ease-in-out;
@@ -136,6 +137,9 @@ a, a:hover {
 	}
 	.items ul.item-ul li:hover ~ .item-ul {
 		display: block;
+	}
+	.part-wrapper {
+		margin-top: 50px;
 	}
 	.part-wrapper h3.item-part-h3 {
 		text-align: center;
@@ -244,6 +248,9 @@ a, a:hover {
 		padding: 15px 5px;
 		margin: 15px 0;
 	}
+	.part-wrapper img{
+	    position: relative;
+	}
 	.describe-ul li span {
 		font-size: 20px;
 		letter-spacing: 2px;
@@ -272,10 +279,34 @@ a, a:hover {
 		margin-top: 20px;
 		margin-bottom: 0;
 	}
+	.item-ul .item_desc {
+		position: absolute;
+	    display: block;
+		text-align: center;
+		font-size: 20px;
+		-webkit-transition: all 0.2s ease;
+		-moz-transition: all 0.2s ease;
+		-ms-transition: all 0.2s ease;
+		-o-transition: all 0.2s ease;
+		border-right: none;
+		border-bottom: none;
+	}
+	.item-ul li a img:hover ~ .item_desc {
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-ms-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		position: absolute;
+		left: 19px;
+		border-right: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		padding: 10px 0;
+		width: 85%;
+	}
 	.footer {
 		background: #333 no-repeat center;
-		height: 105px;
-		padding: 10px 0;
+		height: 150px;
+		padding: 30px 0;
 	}
 	.footer-title-wrapper .footer-title {
 		padding: 10px 0;
@@ -389,11 +420,12 @@ a, a:hover {
 	.items ul.item-ul li {
 		width: calc(100%/ 6);
 		float: left;
-		padding: 5px 5px;
+		padding: 0 10px;
 		-webkit-transition: all 0.4s ease;
 		-ms-transition: all 0.4s ease;
 		-o-transition: all 0.4s ease;
 		-moz-transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
 	}
 	.items ul.item-ul li:hover {
 		-webkit-transition: all 0.4s ease-in-out;
