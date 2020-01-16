@@ -24,14 +24,10 @@ $(function() {
 	});
 
 	// 게시판 문의 버튼 클릭시 동작
-	$("#inquirySubmit").on(
-			"click",
-			function() {
+	$("#inquirySubmit").on("click", function() {
 				if (InquiryFunction()) {
-					document.getElementById("inquiryFrm").setAttribute(
-							"method", "post");
-					document.getElementById("inquiryFrm").setAttribute(
-							"action", "/sendInquiry.do");
+					document.getElementById("inquiryFrm").setAttribute("method", "post");
+					document.getElementById("inquiryFrm").setAttribute("action", "/sendInquiry.do");
 					document.inquiryFrm.submit();
 				}
 				return false;
@@ -87,6 +83,7 @@ function OrderFunction() {
 		var addr = $("#OrderAddr").val();
 		var userName = $("#userName").val();
 		var tel = $("#orderTel").val();
+		
 		if (addr.length <= 10) {
 			alert("주소는 10자이상, 문자로이루어져여야 합니다.\n 예)경기도 인천시 산골아파트 101동 102호");
 			$("#OrderAddr").focus();

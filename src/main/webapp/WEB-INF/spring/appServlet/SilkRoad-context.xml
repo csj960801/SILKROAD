@@ -15,17 +15,31 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
-		in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- 경로자동 설정(/WEB-INF/views/페이지.jsp) -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>    
-    
-    <!-- DAO  -->
-    <beans:bean class="com.silkroad.SilkRoadDAO.SilkRoadDAOImpl" id="silkRoadDAOImpl"/>
-    <!-- Service  -->
-    <beans:bean class="com.silkroad.SilkRoadService.SilkRoadServiceImpl" id="silkRoadServiceImpl"/>
+	</beans:bean>
+
+	<!-- Interceptor 생성 -->
+	<beans:bean class="com.silkroad.SilkRoadInterceptor.SilkRoadInterCeptor" id="interceptor" />
+	<interceptors>
+		<interceptor>
+             <mapping path="/sendInquiry.do"/>
+             <mapping path="/OrderFunction.do"/>
+             <beans:ref bean="interceptor"/>
+		</interceptor>
+	</interceptors>
+
+	<!-- DAO -->
+	<beans:bean class="com.silkroad.SilkRoadDAO.SilkRoadDAOImpl"
+		id="silkRoadDAOImpl" />
+	<!-- Service -->
+	<beans:bean
+		class="com.silkroad.SilkRoadService.SilkRoadServiceImpl"
+		id="silkRoadServiceImpl" />
 	<!-- Controller -->
-	<context:component-scan base-package="com.silkroad.SilkroadController" />
+	<context:component-scan
+		base-package="com.silkroad.SilkroadController" />
 </beans:beans>
