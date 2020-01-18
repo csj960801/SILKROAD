@@ -26,8 +26,7 @@
 	<beans:bean class="com.silkroad.SilkRoadInterceptor.SilkRoadInterCeptor" id="interceptor" />
 	<interceptors>
 		<interceptor>
-             <mapping path="/sendInquiry.do"/>
-             <mapping path="/OrderFunction.do"/>
+             <mapping path="/Admin/adminCheck.do"/>
              <beans:ref bean="interceptor"/>
 		</interceptor>
 	</interceptors>

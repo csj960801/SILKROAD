@@ -11,6 +11,7 @@
 <link href="/BootStrap/css/bootstrap.css" rel="stylesheet" />
 <link href="/BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" />
 <link href="/js+style/css/SilkRoadCss.css" rel="stylesheet" />
+<link href="/js+style/css/admin.css" rel="stylesheet" />
 <link href="/js+style/fontAwesome/font-awesome.css" rel="stylesheet" />
 <link href="/js+style/fontAwesome/font-awesome.min.css" rel="stylesheet" />
 
@@ -26,6 +27,7 @@
 <script src="/js+style/js/jquery-3.2.1.js"></script>
 <script src="/js+style/js/ItemListJS.js"></script>
 <script src="/js+style/js/SilkRoadJS.js"></script>
+<script src="/js+style/js/admin.js"></script>
 
 <!-- made by CSJ -->
 <title>SilkRoad</title>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@media ( min-width :768px) {
+	.inputForm_wrapper {
+		margin: 20px 0;
+		height: 300px;
+	}
+	.inputForm_wrapper .admin_fieldset {
+		width: 60%;
+		margin: auto;
+		text-align: center;
+	}
+	.admin_fieldset .admin_legend {
+		padding: 10px 0;
+	}
+	.function-wrapper .manageForm {
+		width: 90%;
+		float: left;
+	}
+}

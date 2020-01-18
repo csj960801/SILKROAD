@@ -37,7 +37,10 @@ public class SilkRoadController extends SilkRoadItemDetail {
 	// POST
 	@RequestMapping(value = "/index", method = RequestMethod.POST)
 	public String home(Model model) {
+		logger.info("=================");
 		logger.info("POST방식으로 접근 시도");
+		logger.info("=================");
+
 		model.addAttribute("main", "/Template/main.jsp");
 		return "index";
 	}
@@ -45,12 +48,30 @@ public class SilkRoadController extends SilkRoadItemDetail {
 	// GET
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public void home(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		logger.info("=================");
 		logger.info("GET방식으로 접근 시도");
+		logger.info("=================");
+
 		RequestDispatcher fowardMain = request.getRequestDispatcher("/Template/main.jsp");
 		fowardMain.forward(request, response);
 	}
-
-	/*
+    
+	/**
+	 * 관리자 기능
+	 */
+	@RequestMapping("/Admin/admin.do")
+	public Map<String, Object> admin() {
+		HashMap<String, Object> adminMap = new HashMap<String, Object>();
+		return adminMap;
+	}
+	@RequestMapping("/Admin/adminCheck.do")
+    public Map<String,Object> adminCheck(){
+		HashMap<String, Object> adminMap = new HashMap<String, Object>();		
+	    adminMap.put("confirmYN", true);
+		return adminMap;
+	}
+	
+	/**
 	 * 카테고리별 페이지 이동
 	 */
 	@RequestMapping("/categories.do")
@@ -75,34 +96,18 @@ public class SilkRoadController extends SilkRoadItemDetail {
 	public Map<String, Object> categoryItem(@RequestParam(value = "item") String ItemKind) {
 		HashMap<String, Object> CategoryMap = new HashMap<String, Object>();
 
-		String test = super.ItemDetail(ItemKind);
-		logger.info("선택아이템명: " + test);
+		String itemDetail = super.ItemDetail(ItemKind);
+		logger.info("선택아이템명: " + itemDetail);
 
 		// 아이템별 종류 식별
-		CategoryMap.put("ItemKind", test);
+		CategoryMap.put("ItemKind", itemDetail);
 		// 아이템 코드
 		CategoryMap.put("ItemCode", ItemKind);
 
 		return CategoryMap;
 	}
 
-	/*
-	 * !연구필요 아이템 정보 페이지(/Item/ItemDetail.jsp)로 이동(RequestToViewNameTranslator)
-	 *
-	 * @RequestMapping(value = "/Item/ItemDetail.do")
-	 * 
-	 * @ResponseBody public Map<String, Object> ItemDetail(@RequestParam(value =
-	 * "ItemInfo") String itemInfo, HttpServletResponse res) throws Exception {
-	 * 
-	 * logger.info("ajax 데이터 들어오긴함: " + itemInfo);
-	 * 
-	 * Map<String, Object> itemDetail = new HashMap<String, Object>();
-	 * itemDetail.put("itemInfo", itemInfo);
-	 * 
-	 * return itemDetail; }
-	 */
-
-	/*
+	/**
 	 * 문의 게시판(RequestToViewNameTranslator)
 	 */
 	@RequestMapping("/Board/Inquiry.do")
@@ -112,7 +117,7 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		return BoardMap;
 	}
 
-	/*
+	/**
 	 * 주문 게시판(RequestToViewNameTranslator)
 	 */
 	@RequestMapping("/Board/Order.do")
@@ -122,7 +127,7 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		return OrderMap;
 	}
 
-	/*
+	/**
 	 * 문의저장기능(검토대상 1)
 	 */
 	@RequestMapping("/sendInquiry.do")
@@ -134,15 +139,11 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		return "/Board/function/BoardFunction";
 	}
 
-	/*
+	/**
 	 * 주문기능(검토대상2)
 	 */
 	@RequestMapping("/OrderFunction.do")
 	public String OrderFunction(@ModelAttribute("OrderVO") SilkRoadOrderVO vo2, HttpServletRequest req) {
-		vo2.setItemName(req.getParameter("ItemName"));
-		vo2.setItemPrice(req.getParameter("ItemPrice"));
-	    vo2.setSizeForm(Integer.parseInt(req.getParameter("sizeForm")));
-		
 		boolean Order = service.insertOrder(vo2, req);
 		if (Order) {
 			logger.info("주문성공~");

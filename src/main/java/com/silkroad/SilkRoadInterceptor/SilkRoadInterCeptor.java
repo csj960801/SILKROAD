@@ -1,7 +1,6 @@
 package com.silkroad.SilkRoadInterceptor;
 
-import java.io.PrintWriter;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.silkroad.SilkRoadDAO.SilkRoadDAOImpl;
+import com.silkroad.SilkRoadVO.SilkRoadAdminVO;
 import com.silkroad.SilkRoadVO.SilkRoadBoardVO;
 import com.silkroad.SilkRoadVO.SilkRoadOrderVO;
 
@@ -25,29 +25,25 @@ public class SilkRoadInterCeptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-        
-		//문의글 VO
-		SilkRoadBoardVO boardVO = new SilkRoadBoardVO(request.getParameter("clientEmail"),request.getParameter("clientInquiry"));
-		
-		//주문용 VO
-		SilkRoadOrderVO orderVO = new SilkRoadOrderVO();
 
-		if (request.getParameter("clientEmail").indexOf("@") <= 0 || !dao.insertInquiry(boardVO)) {
+		SilkRoadAdminVO adminVo = new SilkRoadAdminVO(request.getParameter("admin_id"));
+
+		adminVo.setAdmin_id(request.getParameter("admin_id"));
+		if (adminVo.getAdmin_id().equals("CsJ")) {
+
 			interCeptorLog.info("-----------------");
-			interCeptorLog.info("옳지않은 이메일 입력방식");
+			interCeptorLog.info("관리자 BrAnt님, 안녕하세요");
 			interCeptorLog.info("-----------------");
-			return false;
-		} else if (request.getParameter("clientInquiry").length() <= 1) {
+
+		} else {
 			interCeptorLog.info("-----------------");
-			interCeptorLog.info("옳지않은 문의글 입력방식");
+			interCeptorLog.info("관리자 인증 실패");
 			interCeptorLog.info("-----------------");
-			return false;
-		} else if (!dao.insertOrder(orderVO, request)) {
-			interCeptorLog.info("-----------------");
-			interCeptorLog.info("옳지않은 주문방식");
-			interCeptorLog.info("-----------------");
-			return false;
+
+			RequestDispatcher toMain = request.getRequestDispatcher("/");
+			toMain.forward(request, response);
 		}
+
 		return true;
 	}
 
@@ -55,7 +51,7 @@ public class SilkRoadInterCeptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
-		super.postHandle(request, response, handler, modelAndView);
+		interCeptorLog.info("postHandle Activated");
 	}
 
 	@Override

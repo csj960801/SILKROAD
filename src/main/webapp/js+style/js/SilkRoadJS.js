@@ -18,6 +18,10 @@ $(function() {
 	// chrome & mozila & opera check
 	var appInfo = navigator.userAgent.toLowerCase();
 
+	$(".footer-title").on("click",function(){
+		window.location.href="/Admin/admin.do";
+	});
+	
 	// 메뉴에서 문의게시판으로 이동할 경우
 	$("#inquiryMenu").on("click", function() {
 		window.location.href = "/Board/Inquiry.do";
