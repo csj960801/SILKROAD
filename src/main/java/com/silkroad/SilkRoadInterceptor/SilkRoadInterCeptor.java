@@ -19,9 +19,6 @@ public class SilkRoadInterCeptor extends HandlerInterceptorAdapter {
 
 	private Logger interCeptorLog = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private SilkRoadDAOImpl dao;
-
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

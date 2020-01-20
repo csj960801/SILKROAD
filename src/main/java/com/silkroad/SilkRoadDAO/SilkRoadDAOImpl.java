@@ -2,6 +2,9 @@ package com.silkroad.SilkRoadDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,12 +21,13 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 
 	private Connection conector;
 	private PreparedStatement sqlState;
+	private ResultSet resultset;
 
 	public static SilkRoadDAOImpl getDaoImpl() {
 		return new SilkRoadDAOImpl();
 	}
 
-	/*
+	/**
 	 * 문의게시판 문의글 저장
 	 */
 	@Override
@@ -57,6 +61,9 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 		return check;
 	}
 
+	/**
+	 * 주문 기능 담당 함수
+	 */
 	@Override
 	public boolean insertOrder(SilkRoadOrderVO vo2, HttpServletRequest req) {
 		boolean check = false;
@@ -90,4 +97,52 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 		return check;
 	}
 
-}
+	/**
+	 * 관리자용 게시글 확인 함수
+	 */
+	@Override
+	public List<SilkRoadBoardVO> adminBoard() {
+		List<SilkRoadBoardVO> boardList = new ArrayList<SilkRoadBoardVO>();
+		String sql = "AdminBoard";
+		try {
+			conector = DBConnection.getDBConnector();
+			sqlState = conector.prepareStatement(super.sqlMap(sql));
+			resultset = sqlState.executeQuery();
+
+			while (resultset.next()) {
+				SilkRoadBoardVO boardvo = new SilkRoadBoardVO();
+				boardvo.setClientInquiry(resultset.getString("BoardContent"));
+				boardvo.setClientEmail(resultset.getString("BoardWriter"));
+
+				//System.out.println(resultset.getMetaData());
+				boardList.add(boardvo);
+			}
+		} catch (Exception e) {
+			logger.error(e.toString());
+		} finally {
+			try {
+				if (conector != null) {
+					conector.close();
+				}
+				if (sqlState != null) {
+					sqlState.close();
+				}
+				if (resultset != null) {
+					resultset.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return (boardList.isEmpty()) ? null : boardList;
+	}
+
+	/**
+	 * 관리자용 주문 내용 확인 함수
+	 */
+	@Override
+	public List<SilkRoadOrderVO> adminOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}// end of class

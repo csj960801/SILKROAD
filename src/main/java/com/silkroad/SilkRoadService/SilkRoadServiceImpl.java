@@ -1,5 +1,7 @@
 package com.silkroad.SilkRoadService;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class SilkRoadServiceImpl implements SilkRoadService {
 	public static SilkRoadServiceImpl getServiceImpl() {
 		return new SilkRoadServiceImpl();
 	}
-    	
+
 	@Override
 	public boolean insertInquiry(SilkRoadBoardVO vo) {
 		// TODO Auto-generated method stub
@@ -29,4 +31,15 @@ public class SilkRoadServiceImpl implements SilkRoadService {
 		return dao.insertOrder(vo2, req);
 	}
 
+	@Override
+	public List<SilkRoadBoardVO> adminBoard() {
+		// TODO Auto-generated method stub
+		return dao.adminBoard();
+	}
+
+	@Override
+	public List<SilkRoadOrderVO> adminOrder() {
+		// TODO Auto-generated method stub
+		return dao.adminOrder();
+	}
 }

@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 @media ( min-width :768px) {
+	.adminWrapper .admin_tbl thead tr th, .adminWrapper .admin_tbl tbody tr td
+		{
+		color: #333 !important;
+		font-size: 20px;
+		text-align: center;
+	}
 	.inputForm_wrapper {
 		margin: 20px 0;
 		height: 300px;

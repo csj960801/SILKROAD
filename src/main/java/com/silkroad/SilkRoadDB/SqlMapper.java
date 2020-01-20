@@ -12,6 +12,9 @@ public class SqlMapper {
 		case "OrderInsert":
 			sql = "insert into OrderBoard(ItemName, ItemPrice, userSize, OrderAddr, userName, orderTel) values(?,?,?,?,?,?)";
 			break;
+		case "AdminBoard":
+			sql = "select * from board where BoardNum is not null";
+			break;
 		}
 		return sql;
 	}

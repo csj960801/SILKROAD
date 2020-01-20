@@ -1,7 +1,9 @@
 package com.silkroad.SilkroadController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.silkroad.SilkRoadInterceptor.SilkRoadInterCeptor;
 import com.silkroad.SilkRoadService.SilkRoadServiceImpl;
 import com.silkroad.SilkRoadVO.SilkRoadBoardVO;
 import com.silkroad.SilkRoadVO.SilkRoadOrderVO;
@@ -33,6 +37,9 @@ public class SilkRoadController extends SilkRoadItemDetail {
 	@Autowired
 	private SilkRoadServiceImpl service;
 
+	@Autowired
+	private SilkRoadInterCeptor interCeptor;
+	
 	// 어플리케이션을 작동하게 될 경우 index를 타고 main.jsp로 로딩 되도록.
 	// POST
 	@RequestMapping(value = "/index", method = RequestMethod.POST)
@@ -64,11 +71,18 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		HashMap<String, Object> adminMap = new HashMap<String, Object>();
 		return adminMap;
 	}
+	
+	/**
+	 * 관리자 문의글 확인 기능(List)
+	 */
 	@RequestMapping("/Admin/adminCheck.do")
-    public Map<String,Object> adminCheck(){
-		HashMap<String, Object> adminMap = new HashMap<String, Object>();		
-	    adminMap.put("confirmYN", true);
-		return adminMap;
+	public List<SilkRoadBoardVO> adminCheck(Model model)
+			throws Exception{
+		
+		List<SilkRoadBoardVO> boardList = service.adminBoard();
+		model.addAttribute("adminBoardList", boardList);
+		
+		return boardList;
 	}
 	
 	/**
