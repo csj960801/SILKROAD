@@ -2,7 +2,7 @@ package com.silkroad.SilkRoadDB;
 
 public class SqlMapper {
 
-	//SQL종류에 따른 SQL명령문 생성 함수
+	// SQL종류에 따른 SQL명령문 생성 함수
 	public String sqlMap(String sqlMapper) {
 		String sql = "";
 		switch (sqlMapper) {
@@ -14,6 +14,9 @@ public class SqlMapper {
 			break;
 		case "AdminBoard":
 			sql = "select * from board where BoardNum is not null";
+			break;
+		case "AdminOrder":
+			sql = "select * from orderboard where OrderCnt is not null";
 			break;
 		}
 		return sql;

@@ -14,6 +14,7 @@
 		<div class="adminWrapper container-fluid">
 			<div class="row">
 				<div class="col-md-12 hidden-xs table-responsive">
+					<h2 class="List_h2">Inquiry_List</h2>
 					<table class="table admin_tbl">
 						<thead>
 							<tr>
@@ -26,6 +27,41 @@
 								<tr>
 									<td>${AdminBoardData.clientEmail}</td>
 									<td>${AdminBoardData.clientInquiry}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix hidden-xs"></div>
+
+		<div class="adminWrapper container-fluid">
+			<div class="row">
+				<div class="col-md-12 hidden-xs table-responsive">
+					<h2 class="List_h2">Order_List</h2>
+					<table class="table admin_tbl">
+						<thead>
+							<tr>
+								<th>Order_User</th>
+								<th>Order_Addr</th>
+								<th>Order_Tel</th>
+								<th>Order_ItemName</th>
+								<th>Order_ItemPrice</th>
+								<th>Order_UserSize</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${adminOrderList}" var="AdminOrderData">
+								${AdminOrderData};
+								<tr>
+									<td>${AdminOrderData.userName}</td>
+									<%-- <td>${AdminOrderData.OrderAddr}</td> --%>
+									<td>${AdminOrderData.orderTel}</td>
+									<%-- <td>${AdminOrderData.ItemName}</td> --%>
+									<%-- <td>${AdminOrderData.ItemPrice}</td> --%>
+									<td>${AdminOrderData.sizeForm}</td>
 								</tr>
 							</c:forEach>
 						</tbody>

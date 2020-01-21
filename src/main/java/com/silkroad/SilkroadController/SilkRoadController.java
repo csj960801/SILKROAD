@@ -39,7 +39,7 @@ public class SilkRoadController extends SilkRoadItemDetail {
 
 	@Autowired
 	private SilkRoadInterCeptor interCeptor;
-	
+
 	// 어플리케이션을 작동하게 될 경우 index를 타고 main.jsp로 로딩 되도록.
 	// POST
 	@RequestMapping(value = "/index", method = RequestMethod.POST)
@@ -62,7 +62,7 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		RequestDispatcher fowardMain = request.getRequestDispatcher("/Template/main.jsp");
 		fowardMain.forward(request, response);
 	}
-    
+
 	/**
 	 * 관리자 기능
 	 */
@@ -71,20 +71,28 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		HashMap<String, Object> adminMap = new HashMap<String, Object>();
 		return adminMap;
 	}
-	
+
 	/**
 	 * 관리자 문의글 확인 기능(List)
 	 */
 	@RequestMapping("/Admin/adminCheck.do")
-	public List<SilkRoadBoardVO> adminCheck(Model model)
-			throws Exception{
-		
+	public List<SilkRoadBoardVO> adminCheck(Model model) throws Exception {
+
 		List<SilkRoadBoardVO> boardList = service.adminBoard();
 		model.addAttribute("adminBoardList", boardList);
-		
+		model.addAttribute("adminOrderList", adminOrder());
+
 		return boardList;
 	}
-	
+
+	/**
+	 * 관리자 주문 확인 기능(List)
+	 */
+	private List<SilkRoadOrderVO> adminOrder() {
+		List<SilkRoadOrderVO> orderList = service.adminOrder();
+		return orderList;
+	}
+
 	/**
 	 * 카테고리별 페이지 이동
 	 */

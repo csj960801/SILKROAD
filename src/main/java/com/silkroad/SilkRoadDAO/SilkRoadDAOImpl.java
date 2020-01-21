@@ -114,7 +114,7 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 				boardvo.setClientInquiry(resultset.getString("BoardContent"));
 				boardvo.setClientEmail(resultset.getString("BoardWriter"));
 
-				//System.out.println(resultset.getMetaData());
+				// System.out.println(resultset.getMetaData());
 				boardList.add(boardvo);
 			}
 		} catch (Exception e) {
@@ -142,7 +142,28 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	 */
 	@Override
 	public List<SilkRoadOrderVO> adminOrder() {
-		// TODO Auto-generated method stub
-		return null;
+		List<SilkRoadOrderVO> adminorder = new ArrayList<SilkRoadOrderVO>();
+		String sql = "AdminOrder";
+		try {
+			conector = DBConnection.getDBConnector();
+			sqlState = conector.prepareStatement(super.sqlMap(sql));
+			resultset = sqlState.executeQuery();
+
+			while (resultset.next()) {
+				SilkRoadOrderVO ordervo = new SilkRoadOrderVO();
+				ordervo.setItemName(resultset.getString("ItemName"));
+				ordervo.setItemPrice(resultset.getString("ItemPrice"));
+				ordervo.setOrderAddr(resultset.getString("OrderAddr"));
+				ordervo.setOrderTel(resultset.getString("orderTel"));
+				ordervo.setSizeForm(resultset.getInt("userSize"));
+				ordervo.setUserName(resultset.getString("userName"));
+				adminorder.add(ordervo);
+			}
+		} catch (Exception e) {
+			logger.error("주문기능예외발생: " + e.toString());
+		} finally {
+
+		}
+		return (adminorder.isEmpty()) ? null : adminorder;
 	}
 }// end of class
