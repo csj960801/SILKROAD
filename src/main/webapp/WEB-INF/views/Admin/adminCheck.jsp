@@ -9,7 +9,7 @@
 <jsp:include page="/Template/Top.jsp" />
 </head>
 <body>
-	<c:if test="${adminBoardList != null}">
+	<c:if test="${adminBoardList != null && adminOrderList != null}">
 
 		<div class="adminWrapper container-fluid">
 			<div class="row">
@@ -54,7 +54,6 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${adminOrderList}" var="AdminOrderData">
-								${AdminOrderData};
 								<tr>
 									<td>${AdminOrderData.userName}</td>
 									<%-- <td>${AdminOrderData.OrderAddr}</td> --%>
