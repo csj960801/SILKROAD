@@ -71,7 +71,7 @@
 	</c:if>
 	<c:choose>
 		<c:when test="${adminBoardList == null}">
-
+           
 		</c:when>
 	</c:choose>
 

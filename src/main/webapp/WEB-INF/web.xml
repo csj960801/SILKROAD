@@ -10,6 +10,11 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
+	<!-- ErrorPageHandler -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/ErrorHandler/ErrorHandler.jsp</location>
+	</error-page>
 	<!-- 공통적으로 사용되는 빈 설정 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

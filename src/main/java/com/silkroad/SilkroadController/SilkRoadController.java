@@ -1,12 +1,8 @@
 package com.silkroad.SilkroadController;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,9 +32,6 @@ public class SilkRoadController extends SilkRoadItemDetail {
 
 	@Autowired
 	private SilkRoadServiceImpl service;
-
-	@Autowired
-	private SilkRoadInterCeptor interCeptor;
 
 	// 어플리케이션을 작동하게 될 경우 index를 타고 main.jsp로 로딩 되도록.
 	// POST
@@ -172,5 +165,4 @@ public class SilkRoadController extends SilkRoadItemDetail {
 		}
 		return "/Board/function/OrderFunction";
 	}
-
 }

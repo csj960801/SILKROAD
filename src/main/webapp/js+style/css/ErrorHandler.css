@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: Cloister Black Light;
+	src: local(Cloister Black Light);
+	src: url(/js+style/fontAwesome/fonts/CloisterBlack.ttf);
+}
+
+@media ( max-width :767px) {
+	* {
+		visibility: hidden;
+	}
+}
+
+@media ( min-width :768px) {
+	* {
+		color: #fff;
+	}
+	ul, li, ol {
+		list-style: none;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	.Error_Container {
+		text-align: center !important;
+		background: rgba(0, 0, 0, 0.43);
+		padding: 15px 0;
+		border-radius: 50px;
+	}
+	h3.404SpaceTitle {
+		font-size: 25px;
+		border-bottom: 1px solid #ddd;
+		padding: 15px 0;
+		width: calc(100%/ 2);
+		margin: auto;
+	}
+	ul li:hover ~ a {
+		border-bottom: 1px solid #fff;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+	}
+	ul li::before {
+		content: "-";
+		padding: 0 5px;
+		font-weight: 800;
+	}
+}
