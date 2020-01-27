@@ -26,11 +26,13 @@
 	<beans:bean class="com.silkroad.SilkRoadInterceptor.SilkRoadInterCeptor" id="interceptor" />
 	<interceptors>
 		<interceptor>
-             <mapping path="/Admin/adminCheck.do"/>
-             <beans:ref bean="interceptor"/>
+			<mapping path="/Admin/adminCheck.do" />
+			<beans:ref bean="interceptor" />
 		</interceptor>
 	</interceptors>
 
+
+	<!-- 빈 생성 -->
 	<!-- DAO -->
 	<beans:bean class="com.silkroad.SilkRoadDAO.SilkRoadDAOImpl"
 		id="silkRoadDAOImpl" />

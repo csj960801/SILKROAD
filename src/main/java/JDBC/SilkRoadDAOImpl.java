@@ -1,4 +1,4 @@
-package com.silkroad.SilkRoadDAO;
+package JDBC;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -29,34 +29,40 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	private PreparedStatement sqlState;
 	private ResultSet resultset;
 
-	// Mybatis Setting
-	String mapper = "Mybatis/Mybatis-Config.xml";
-	InputStream mapperstream = null;
-
 	public static SilkRoadDAOImpl getDaoImpl() {
 		return new SilkRoadDAOImpl();
 	}
 
 	/**
-	 * 문의게시판 문의글 저장(Mybatis)
+	 * 문의게시판 문의글 저장(Jdbc)
 	 */
 	@Override
 	public boolean insertInquiry(SilkRoadBoardVO vo) {
 		boolean check = false;
-		try {
-			mapperstream = Resources.getResourceAsStream(mapper);
-			SqlSessionFactory sessionfactory = new SqlSessionFactoryBuilder().build(mapperstream);
-			SqlSession session = sessionfactory.openSession();
+		String sql = "insert";
 
-			int InquiryInsert = session.insert("InquiryInsert", vo);
-			if (InquiryInsert > 0) {
-				session.commit();
+		try {
+			conector = DBConnection.getDBConnector();
+			sqlState = conector.prepareStatement(super.sqlMap(sql));
+
+			sqlState.setString(1, vo.getClientEmail());
+			sqlState.setString(2, vo.getClientInquiry());
+			if (sqlState.executeUpdate() > 0) {
 				check = true;
 			}
 		} catch (Exception e) {
 			logger.error(e.toString());
 		} finally {
-
+			try {
+				if (conector != null) {
+					conector.close();
+				}
+				if (sqlState != null) {
+					sqlState.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return check;
 	}
