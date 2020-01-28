@@ -1,10 +1,6 @@
 package com.silkroad.SilkRoadDAO;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +12,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.silkroad.SilkRoadDB.DBConnection;
 import com.silkroad.SilkRoadDB.SqlMapper;
 import com.silkroad.SilkRoadVO.SilkRoadBoardVO;
 import com.silkroad.SilkRoadVO.SilkRoadOrderVO;
@@ -24,18 +19,9 @@ import com.silkroad.SilkRoadVO.SilkRoadOrderVO;
 public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	private Logger logger = LoggerFactory.getLogger(SilkRoadDAOImpl.class);
 
-	// Jdbc Setting
-	private Connection conector;
-	private PreparedStatement sqlState;
-	private ResultSet resultset;
-
 	// Mybatis Setting
 	String mapper = "Mybatis/Mybatis-Config.xml";
 	InputStream mapperstream = null;
-
-	public static SilkRoadDAOImpl getDaoImpl() {
-		return new SilkRoadDAOImpl();
-	}
 
 	/**
 	 * 문의게시판 문의글 저장(Mybatis)
@@ -79,7 +65,7 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 			int OrderInsert = session.insert("OrderInsert", vo2);
 			if (OrderInsert > 0) {
 				session.commit();
-                check = true;
+				check = true;
 				System.out.println("주문되었습니다.");
 			}
 
@@ -100,39 +86,26 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	 */
 	@Override
 	public List<SilkRoadBoardVO> adminBoard() {
-		List<SilkRoadBoardVO> boardList = new ArrayList<SilkRoadBoardVO>();
-		String sql = "AdminBoard";
+		List<SilkRoadBoardVO> boardList = null;
+		SilkRoadBoardVO boardvo = new SilkRoadBoardVO();
+
 		try {
-			conector = DBConnection.getDBConnector();
-			sqlState = conector.prepareStatement(super.sqlMap(sql));
-			resultset = sqlState.executeQuery();
+			mapperstream = Resources.getResourceAsStream(mapper);
+			SqlSessionFactory sessionfactory = new SqlSessionFactoryBuilder().build(mapperstream);
+			SqlSession session = sessionfactory.openSession();
 
-			while (resultset.next()) {
-				SilkRoadBoardVO boardvo = new SilkRoadBoardVO();
-				boardvo.setClientInquiry(resultset.getString("BoardContent"));
-				boardvo.setClientEmail(resultset.getString("BoardWriter"));
+			boardList = session.selectList("adminBoard", boardvo);
 
-				// System.out.println(resultset.getMetaData());
-				boardList.add(boardvo);
-			}
 		} catch (Exception e) {
 			logger.error(e.toString());
 		} finally {
 			try {
-				if (conector != null) {
-					conector.close();
-				}
-				if (sqlState != null) {
-					sqlState.close();
-				}
-				if (resultset != null) {
-					resultset.close();
-				}
+				mapperstream.close();
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}
 		}
-		return (boardList.isEmpty()) ? null : boardList;
+		return boardList;
 	}
 
 	/**
@@ -140,27 +113,23 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	 */
 	@Override
 	public List<SilkRoadOrderVO> adminOrder() {
-		List<SilkRoadOrderVO> adminorder = new ArrayList<SilkRoadOrderVO>();
-		String sql = "AdminOrder";
+		List<SilkRoadOrderVO> adminorder = null;
+		SilkRoadOrderVO ordervo = new SilkRoadOrderVO();
 		try {
-			conector = DBConnection.getDBConnector();
-			sqlState = conector.prepareStatement(super.sqlMap(sql));
-			resultset = sqlState.executeQuery();
+			mapperstream = Resources.getResourceAsStream(mapper);
+			SqlSessionFactory sessionfactory = new SqlSessionFactoryBuilder().build(mapperstream);
+			SqlSession session = sessionfactory.openSession();
 
-			while (resultset.next()) {
-				SilkRoadOrderVO ordervo = new SilkRoadOrderVO();
-				ordervo.setItemName(resultset.getString("ItemName"));
-				ordervo.setItemPrice(resultset.getString("ItemPrice"));
-				ordervo.setOrderAddr(resultset.getString("OrderAddr"));
-				ordervo.setOrderTel(resultset.getString("orderTel"));
-				ordervo.setSizeForm(resultset.getInt("userSize"));
-				ordervo.setUserName(resultset.getString("userName"));
-				adminorder.add(ordervo);
-			}
+			adminorder = session.selectList("orderBoard", ordervo);
+
 		} catch (Exception e) {
-			logger.error("주문기능예외발생: " + e.toString());
+			logger.error(e.toString());
 		} finally {
-
+			try {
+				mapperstream.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return (adminorder.isEmpty()) ? null : adminorder;
 	}

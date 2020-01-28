@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mybatis.BoardMapper">
 
+	<!-- 문의 게시판용 데이터(vo) -->
+	<resultMap type="InquiryBoard" id="inquiry">
+		<result property="clientEmail" column="BoardWriter" />
+		<result property="clientInquiry" column="BoardContent" />
+	</resultMap>
+
+	<!-- 주문 게시판용 데이터(vo) -->
+	<resultMap type="OrderBoard" id="order">
+		<result property="ItemName" column="ItemName" />
+		<result property="ItemPrice" column="ItemPrice" />
+		<result property="sizeForm" column="userSize" />
+		<result property="OrderAddr" column="OrderAddr" />
+		<result property="userName" column="userName" />
+		<result property="orderTel" column="orderTel" />
+	</resultMap>
+
 	<!-- 문의게시판 insert -->
 	<insert id="InquiryInsert"
 		parameterType="com.silkroad.SilkRoadVO.SilkRoadBoardVO">
@@ -12,8 +28,21 @@
 	<!-- 주문 게시판 insert -->
 	<insert id="OrderInsert"
 		parameterType="com.silkroad.SilkRoadVO.SilkRoadOrderVO">
-		insert into OrderBoard(ItemName, ItemPrice, userSize, OrderAddr, userName,
+		insert into OrderBoard(ItemName, ItemPrice, userSize,
+		OrderAddr, userName,
 		orderTel)
 		values(#{ItemName},#{ItemPrice},#{sizeForm},#{OrderAddr},#{userName},#{orderTel})
 	</insert>
+
+	<!-- 관리자용 문의 게시판 글 출력 -->
+	<select id="adminBoard" resultMap="inquiry">
+		select * from board where
+		BoardNum is not null
+	</select>
+
+    <!-- 관리자용 주문 게시판 글 출력  -->
+	<select id="orderBoard" resultMap="order">
+		select * from orderboard where OrderCnt is not null
+	</select>
+
 </mapper>
