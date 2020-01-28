@@ -3,7 +3,17 @@
 <mapper namespace="Mybatis.BoardMapper">
 
 	<!-- 문의게시판 insert -->
-	<insert id="InquiryInsert" parameterType="com.silkroad.SilkRoadVO.SilkRoadBoardVO">
-		insert into board(BoardWriter, BoardContent) values(#{clientEmail},#{clientInquiry})
+	<insert id="InquiryInsert"
+		parameterType="com.silkroad.SilkRoadVO.SilkRoadBoardVO">
+		insert into board(BoardWriter, BoardContent)
+		values(#{clientEmail},#{clientInquiry})
+	</insert>
+
+	<!-- 주문 게시판 insert -->
+	<insert id="OrderInsert"
+		parameterType="com.silkroad.SilkRoadVO.SilkRoadOrderVO">
+		insert into OrderBoard(ItemName, ItemPrice, userSize, OrderAddr, userName,
+		orderTel)
+		values(#{ItemName},#{ItemPrice},#{sizeForm},#{OrderAddr},#{userName},#{orderTel})
 	</insert>
 </mapper>

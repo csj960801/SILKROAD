@@ -56,7 +56,11 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 		} catch (Exception e) {
 			logger.error(e.toString());
 		} finally {
-
+			try {
+				mapperstream.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return check;
 	}
@@ -67,29 +71,23 @@ public class SilkRoadDAOImpl extends SqlMapper implements SilkRoadDAO {
 	@Override
 	public boolean insertOrder(SilkRoadOrderVO vo2, HttpServletRequest req) {
 		boolean check = false;
-		String sql = "OrderInsert";
 		try {
-			conector = DBConnection.getDBConnector();
-			sqlState = conector.prepareStatement(super.sqlMap(sql));
-			sqlState.setString(1, vo2.getItemName());
-			sqlState.setString(2, vo2.getItemPrice());
-			sqlState.setInt(3, vo2.getSizeForm());
-			sqlState.setString(4, vo2.getOrderAddr());
-			sqlState.setString(5, vo2.getUserName());
-			sqlState.setString(6, vo2.getOrderTel());
-			if (sqlState.executeUpdate() > 0) {
-				check = true;
+			mapperstream = Resources.getResourceAsStream(mapper);
+			SqlSessionFactory sessionfactory = new SqlSessionFactoryBuilder().build(mapperstream);
+			SqlSession session = sessionfactory.openSession();
+
+			int OrderInsert = session.insert("OrderInsert", vo2);
+			if (OrderInsert > 0) {
+				session.commit();
+                check = true;
+				System.out.println("주문되었습니다.");
 			}
+
 		} catch (Exception e) {
 			logger.error(e.toString());
 		} finally {
 			try {
-				if (conector != null) {
-					conector.close();
-				}
-				if (sqlState != null) {
-					sqlState.close();
-				}
+				mapperstream.close();
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}
