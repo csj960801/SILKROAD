@@ -6,8 +6,8 @@ public class SilkRoadItemDetail {
 	public String ItemDetail(String ItemCode) {
 		String name = "";
 		// 아이템코드명
-		String[] ItemCodes = { "ring1", "ring2", "ring3", "ring4", "bracelet1", "bracelet2", "bracelet3",
-				"bracelet4", "necklace1", "necklace2", "necklace3", "necklace4" };
+		String[] ItemCodes = { "ring1", "ring2", "ring3", "ring4", "ring5", "bracelet1", "bracelet2", "bracelet3",
+				"bracelet4", "bracelet5", "necklace1", "necklace2", "necklace3", "necklace4", "necklace5" };
 		// 반지류
 		if (ItemCode.indexOf("ring") > -1) {
 			for (String Items : ItemCodes) {
@@ -48,6 +48,8 @@ public class SilkRoadItemDetail {
 			ItemName = "ForbidenEmotion";
 		} else if (ItemCode.equals("ring4")) {
 			ItemName = "ChaosRing";
+		} else if (ItemCode.equals("ring5")) {
+			ItemName = "GoldenFlower";
 		} else {
 			ItemName = "제작중";
 		}

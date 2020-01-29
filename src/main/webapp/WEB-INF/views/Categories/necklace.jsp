@@ -11,35 +11,44 @@
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<div class="row category-row">
-					
-					<c:forEach begin="1" end="4" var="item">
-						<div class="col-md-3 col-xs-4">
-							<img src="/picture/necklace/necklace${item}.jpg" id="ringImg" class="img-responsive img-thumbnail" />
-							<c:if test="${item == 1}">
-								<a href="/Categories/Detail/category.do?item=necklace1" class="item-introduce">
-									<span class="item-span">LuckySevn</span>
-								</a>
-							</c:if>
-							<c:choose>
-								<c:when test="${item == 2}">
-									<a href="/Categories/Detail/category.do?item=necklace2" class="item-introduce">
-									  <span class="item-span">Anonymous1</span>
-									</a>
-								</c:when>
-								<c:when test="${item == 3}">
-									<a href="/Categories/Detail/category.do?item=necklace3" class="item-introduce"> 
-									  <span class="item-span">Anonymous2</span>
-									</a>
-								</c:when>
-								<c:when test="${item == 4}">
-									<a href="/Categories/Detail/category.do?item=necklace4" class="item-introduce"> 
-									<span class="item-span">Anonymous3</span>
-									</a>
-								</c:when>
-							</c:choose>
-						</div>
-					</c:forEach>
 
+					<div class="col-md-3 col-xs-4">
+						<img src="/picture/necklace/necklace1.jpg" id="ringImg" class="img-responsive img-thumbnail" />
+						 <a href="/Categories/Detail/category.do?item=necklace1" class="item-introduce"> <span class="item-span">LuckySevn</span>
+						</a>
+					</div>
+					
+					<div class="col-md-3 col-xs-4">
+						<img src="/picture/necklace/necklace2.jpg" id="ringImg" class="img-responsive img-thumbnail">
+							<a href="/Categories/Detail/category.do?item=necklace2" class="item-introduce"> 
+							<span class="item-span">Anonymous</span>
+							</a>
+					</div>
+					
+					<div class="col-md-3 col-xs-4">
+						<img src="/picture/necklace/necklace3.jpg" id="ringImg" class="img-responsive img-thumbnail">
+							<a href="/Categories/Detail/category.do?item=necklace3" class="item-introduce"> 
+							  <span class="item-span">Anonymous</span>
+							</a>
+					</div>
+					
+					<div class="clearfix visible-xs"></div>
+					
+					<div class="col-md-3 col-xs-4">
+						<img src="/picture/necklace/necklace4.jpg" id="ringImg" class="img-responsive img-thumbnail">
+						  <a href="/Categories/Detail/category.do?item=necklace4" class="item-introduce"> 
+							<span class="item-span">Anonymous</span>
+					      </a>
+					</div>
+					
+					<div class="clearfix hidden-xs"></div>
+					
+					<div class="col-md-3 col-xs-4">
+						<img src="/picture/necklace/necklace5.jpg" id="ringImg" class="img-responsive img-thumbnail">
+						  <a href="/Categories/Detail/category.do?item=necklace5" class="item-introduce">
+						    <span class="item-span">Anonymous</span>
+					      </a>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -116,6 +116,7 @@ public class SilkRoadController extends SilkRoadItemDetail {
 
 		// 아이템별 종류 식별
 		CategoryMap.put("ItemKind", itemDetail);
+		
 		// 아이템 코드
 		CategoryMap.put("ItemCode", ItemKind);
 

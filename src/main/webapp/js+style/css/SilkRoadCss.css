@@ -87,11 +87,11 @@ a, a:hover {
 		height: 500px;
 	}
 	.main-carousel .item {
-		background: url('/picture/ring.jpg') no-repeat center;
+		background: url('/picture/testImg.jpg') no-repeat center;
 		height: 500px;
 	}
 	.main-carousel .item:last-child {
-		background: url('/picture/bracelet.jpg') no-repeat center !important;
+		background: url('/picture/testImg.jpg') no-repeat center !important;
 		height: 500px;
 	}
 	.itemList, .inquiry-wrapper {
@@ -202,7 +202,7 @@ a, a:hover {
 	}
 	.category-main, .ItemCategory-wrapper {
 		background: rgba(0, 0, 0, 0.65);
-		height: 410px;
+		height: auto;
 	}
 	.category-wrapper .category-h3 {
 		text-align: center;
@@ -219,23 +219,24 @@ a, a:hover {
 		display: block;
 		text-align: center;
 		width: 50%;
-		margin: 0 auto;
+		margin: 0 auto 25px;
 		padding: 5px 0;
 		-webkit-transition: all 0.3s ease;
 		-ms-transition: all 0.3s ease;
 		-o-transition: all 0.3s ease;
 		-moz-transition: all 0.3s ease;
 	}
+	/*
 	.item-introduce .item-span:hover {
 		letter-spacing: 2px;
 		border-bottom: 1px solid #fff;
 		margin: 0 auto;
-		width: 70%;
+		width: 70%; 
 		-webkit-transition: all 0.3s ease-in-out;
 		-ms-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
-	}
+	}*/
 	.ItemInfo-wrapper .describe-wrapper ul.describe-ul li {
 		font-size: 25px;
 		padding: 10px 0;
