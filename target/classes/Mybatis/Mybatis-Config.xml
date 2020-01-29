@@ -13,14 +13,13 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url"
-					value="jdbc:mysql://localhost:3306/spring?serverTimezone=UTC" />
-				<property name="username" value="root" />
-				<property name="password" value="sevenn0801" />
+				<property name="url" value="YourSQLUrl" />
+				<property name="username" value="YourSQLId" />
+				<property name="password" value="YourSQLPw" />
 			</dataSource>
 		</environment>
 	</environments>
-
+	
 	<mappers>
 		<mapper resource="Mybatis/BoardMapper.xml" />
 	</mappers>

@@ -64,7 +64,7 @@
 						</li>
 						<li>
 						  <a href="/Categories/Detail/category.do?item=bracelet5">
-						     <img class="img-responsive img-thumbnail" src="/picture/bracelet/bracelet5.jpg" style="height:192px;">
+						     <img class="img-responsive img-thumbnail" src="/picture/bracelet/bracelet5.jpg">
 						     <span class="item_desc">AnonyMous</span>
 						  </a>
 						</li>
